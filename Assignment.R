@@ -370,3 +370,56 @@ facet <- ggplot(data=df, aes(Sepal.Length, y=Sepal.Width, color=Species)) +
   ggtitle("Faceting") 
 # Along columns
 facet + facet_grid(. ~ Species)
+
+
+### ggplot2, https://nbisweden.github.io/workshop-r/2011/lab_ggplot2.html
+library(ggplot2)
+
+# Bt species
+ggplot(data=iris,mapping=aes(x=Petal.Length,y=Petal.Width))+
+  geom_point(aes(color=Species))+
+  geom_smooth(method="lm")+
+  labs(title="Iris data",subtitle="ggplot2",x=" Petal Length", 
+       y="Petal Width", caption="")+
+  theme(legend.position="top",
+        legend.justification="right")
+
+
+# By Sepal.Width by Species
+ggplot(data=iris,mapping=aes(x=Petal.Length,y=Petal.Width))+
+  geom_point(aes(color=Species,size=Sepal.Width))+
+  geom_smooth(method="lm")+
+  scale_color_manual(values=c("red","blue","green"))+
+  labs(title="Iris data",subtitle="ggplot2",x=" Petal Length", 
+       y="Petal Width", caption="")+
+  theme_bw()+
+  theme(legend.position="top",
+        legend.justification="right")
+
+
+# By Sepal.Width
+ggplot(data=iris,mapping=aes(x=Petal.Length,y=Petal.Width))+
+  geom_point(aes(color=Sepal.Width))+
+  geom_smooth(method="lm")+
+  scale_x_continuous(breaks=1:8)+
+  scale_color_continuous(name="Sepal.Width")+
+  labs(title="Iris data",subtitle="ggplot2",x=" Petal Length", 
+       y="Petal Width", caption="")+
+  theme_bw()+
+  theme(legend.position="top",
+        legend.justification="right")
+
+
+# Facet
+ggplot(data=iris,mapping=aes(x=Petal.Length,y=Petal.Width))+
+  geom_point(aes(color=Sepal.Width))+
+  geom_smooth(method="lm")+
+  scale_x_continuous(breaks=1:8)+
+  scale_color_continuous(name="Sepal.Width")+
+  labs(title="Iris data",subtitle="ggplot2",x=" Petal Length", 
+       y="Petal Width", caption="") +
+  facet_wrap(~Species)+
+  theme_bw()+
+  theme(legend.position="top",
+        legend.justification="right")
+
