@@ -5,9 +5,13 @@
 # New Project... -> Version Control -> Git -> Paste in 'Repository URL:' 
 
 # Installing and Initializing Packages:
+library(renv)
+# renv::init()
+# renv::install(c("tidyverse","ggpubr"))
 install.packages("tidyverse")
 library(tidyverse)
 renv::snapshot()
+
 # > Lockfile written to "C:/Users/kctl226/Desktop/testrepo2/renv.lock".
 
 # Loading and Exploring Data:
