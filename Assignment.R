@@ -423,3 +423,5 @@ ggplot(data=iris,mapping=aes(x=Petal.Length,y=Petal.Width))+
   theme(legend.position="top",
         legend.justification="right")
 
+### Saving Library State:
+renv::snapshot()
